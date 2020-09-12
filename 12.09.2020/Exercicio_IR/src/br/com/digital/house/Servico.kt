@@ -24,7 +24,5 @@ class Servico: IRecebivel {
                 " ao preço de $precoHora/hora, preço total -> ${totalizarReceita()}"
     }
 
-    override fun totalizarReceita(): Double {
-        return horas * precoHora
-    }
+    override fun totalizarReceita(): Double = horas * precoHora
 }

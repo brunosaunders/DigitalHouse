@@ -21,7 +21,5 @@ class ItemVenda: IRecebivel {
                 " preço total -> ${totalizarReceita()}"
     }
 
-    override fun totalizarReceita(): Double {
-        return quantidade * valor
-    }
+    override fun totalizarReceita(): Double = quantidade * valor
 }
