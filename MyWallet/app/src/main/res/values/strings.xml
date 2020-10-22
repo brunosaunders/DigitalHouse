@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Snackbar</string>
+
+
+    <!-- String Login -->
+    <string name="til_user_name">User Name</string>
+    <string name="til_username">Username</string>
+    <string name="til_password">Password</string>
+    <string name="til_confirm_password">Confirm Password</string>
+    <string name="btn_login">Login</string>
+    <string name="tv_info">Click here to Sign Up</string>
+    <string name="til_email">Email</string>
+    <string name="cadastro">SIGN UP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
