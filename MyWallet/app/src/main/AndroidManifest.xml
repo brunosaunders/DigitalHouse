@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".domain.InformationActivity"></activity>
-        <activity android:name="com.example.my.wallet.CadastroActivity" />
+        <activity android:name="com.example.wallet.CadastroActivity" />
         <activity
-            android:name="com.example.my.wallet.LoginActivity"
+            android:name="com.example.wallet.LoginActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.my.wallet.MainActivity" />
+        <activity android:name="com.example.wallet.MainActivity" />
     </application>
 
 </manifest>

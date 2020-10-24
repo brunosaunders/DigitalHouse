@@ -2,15 +2,17 @@ package com.example.wallet
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.wallet.domain.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ActivityContract {
     var activeState = State.ENTRADAS
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,5 +102,13 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.profile_menu, menu)
 
         return true
+    }
+
+    override fun callGastosDetail() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.gastos_detail_frame, GastosDetailFragment.newInstance("Bruno Sena Saunders"))
+            .commit()
+        gastos_detail_frame.visibility = View.VISIBLE
+        frame_fragment.visibility = View.GONE
     }
 }

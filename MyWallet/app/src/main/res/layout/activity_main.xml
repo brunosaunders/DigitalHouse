@@ -12,13 +12,13 @@
         android:id="@+id/floatingActionButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/colorPurple"
         android:clickable="true"
         android:src="@drawable/ic_baseline_add_36"
-        app:layout_constraintBottom_toBottomOf="@+id/frame_fragment"
-        app:layout_constraintEnd_toEndOf="@+id/frame_fragment" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -50,8 +50,7 @@
                 android:id="@+id/home_line"
                 android:layout_width="120dp"
                 android:layout_height="3dp"
-                android:background="@color/colorWhite"
-                />
+                android:background="@color/colorWhite" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,8 +61,9 @@
                     android:id="@+id/home_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_baseline_home_24"
-                    android:layout_marginEnd="8dp"/>
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/ic_baseline_home_24" />
+
                 <TextView
                     android:id="@+id/home_textview"
                     android:layout_width="wrap_content"
@@ -86,8 +86,7 @@
                 android:id="@+id/entradas_line"
                 android:layout_width="120dp"
                 android:layout_height="3dp"
-                android:background="@color/colorWhite"
-                />
+                android:background="@color/colorWhite" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,8 +97,9 @@
                     android:id="@+id/entradas_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_baseline_present_to_all_24"
-                    android:layout_marginEnd="8dp"/>
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/ic_baseline_present_to_all_24" />
+
                 <TextView
                     android:id="@+id/entradas_textview"
                     android:layout_width="wrap_content"
@@ -121,8 +121,8 @@
                 android:id="@+id/gastos_line"
                 android:layout_width="120dp"
                 android:layout_height="3dp"
-                android:background="@color/colorWhite"
-                />
+                android:background="@color/colorWhite" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -134,6 +134,7 @@
                     android:layout_height="wrap_content"
 
                     app:srcCompat="@drawable/ic_baseline_attach_money_24" />
+
                 <TextView
                     android:id="@+id/gastos_textview"
                     android:layout_width="wrap_content"
@@ -156,6 +157,19 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/round_white_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/gastos_detail_frame"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_white_shape"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,13 +1,15 @@
 package com.example.wallet
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
-    val MAIN_ACTIVITY = "HomeFragment"
+    private lateinit var activityContract: ActivityContract
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -15,6 +17,16 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        view.detail_gastos_home.setOnClickListener {
+            activityContract.callGastosDetail()
+        }
+
         return view
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        if (context is ActivityContract) activityContract = context
     }
 }
