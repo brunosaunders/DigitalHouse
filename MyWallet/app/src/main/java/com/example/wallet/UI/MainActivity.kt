@@ -1,14 +1,18 @@
-package com.example.wallet
+package com.example.wallet.UI
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.wallet.Interface.ActivityContract
+import com.example.wallet.R
+import com.example.wallet.domain.State
 import com.example.wallet.domain.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -101,6 +105,16 @@ class MainActivity : AppCompatActivity(), ActivityContract {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.profile_menu, menu)
 
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                val intent = Intent(this, ProfileeActivity::class.java)
+                startActivity(intent)
+            }
+        }
         return true
     }
 

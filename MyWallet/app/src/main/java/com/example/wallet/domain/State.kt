@@ -1,4 +1,4 @@
-package com.example.wallet
+package com.example.wallet.domain
 
 enum class State {
     ENTRADAS, HOME, GASTOS

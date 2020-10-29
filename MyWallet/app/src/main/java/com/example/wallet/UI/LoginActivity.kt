@@ -1,9 +1,10 @@
-package com.example.wallet
+package com.example.wallet.UI
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.wallet.R
 import com.example.wallet.domain.Usuario
 import kotlinx.android.synthetic.main.login_body.*
 

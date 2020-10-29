@@ -1,4 +1,4 @@
-package com.example.wallet
+package com.example.wallet.Interface
 
 interface ActivityContract {
     fun callGastosDetail()
