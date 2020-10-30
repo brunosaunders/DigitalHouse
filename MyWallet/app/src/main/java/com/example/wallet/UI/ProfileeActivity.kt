@@ -14,9 +14,9 @@ class ProfileeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profilee)
 
         setSupportActionBar(profile_toolbar)
-        val navController = findNavController(R.id.nav_host_fragment)
-        val configuration = AppBarConfiguration(navController.graph)
-
-        setupActionBarWithNavController(navController, configuration)
+//        val navController = findNavController(R.id.nav_host_fragment)
+//        val configuration = AppBarConfiguration(navController.graph)
+//
+//        setupActionBarWithNavController(navController, configuration)
     }
 }

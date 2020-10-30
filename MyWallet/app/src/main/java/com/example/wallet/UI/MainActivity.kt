@@ -16,7 +16,7 @@ import com.example.wallet.domain.State
 import com.example.wallet.domain.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), ActivityContract {
+class MainActivity : AppCompatActivity(){
     var activeState = State.ENTRADAS
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -116,13 +116,5 @@ class MainActivity : AppCompatActivity(), ActivityContract {
             }
         }
         return true
-    }
-
-    override fun callGastosDetail() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.gastos_detail_frame, GastosDetailFragment.newInstance("Bruno Sena Saunders"))
-            .commit()
-        gastos_detail_frame.visibility = View.VISIBLE
-        frame_fragment.visibility = View.GONE
     }
 }

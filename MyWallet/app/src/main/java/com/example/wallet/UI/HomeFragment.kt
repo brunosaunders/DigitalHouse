@@ -11,7 +11,6 @@ import com.example.wallet.R
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
-    private lateinit var activityContract: ActivityContract
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,16 +18,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        view.detail_gastos_home.setOnClickListener {
-            activityContract.callGastosDetail()
-        }
 
         return view
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        if (context is ActivityContract) activityContract = context
     }
 }

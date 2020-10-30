@@ -8,7 +8,11 @@
     tools:context="com.example.wallet.UI.ProfileeActivity">
 
     <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
         android:id="@+id/profile_toolbar"
+        app:title="Profile"
+        app:titleTextColor="@color/colorWhite"
+        android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
