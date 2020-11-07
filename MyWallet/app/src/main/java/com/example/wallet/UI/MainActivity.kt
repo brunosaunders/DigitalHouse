@@ -23,14 +23,15 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(findViewById(R.id.toolbar))
+
 
         supportFragmentManager.beginTransaction()
             .add(R.id.frame_fragment, EntradasFragment())
             .commit()
 
-        val usuario = intent.getSerializableExtra("key") as Usuario
-        Toast.makeText(this, usuario.nome, Toast.LENGTH_LONG).show()
+        val usuario = intent.getSerializableExtra("key") as? Usuario
+        Toast.makeText(this, usuario?.nome, Toast.LENGTH_LONG).show()
 
         changeToPurple()
 

@@ -1,95 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UI.GastosFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <data>
+        <variable
+            name="gasto"
+            type="com.example.wallet.domain.Gasto" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="32dp">
+        android:layout_height="match_parent"
+        tools:context=".UI.GastosFragment">
 
-        <TextView
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/cadastrar"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/colorPurple"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginTop="32dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/descricao_edit_text"
-                android:textColorHint="@color/colorAccent"
-                android:hint="@string/descricao"
-                android:inputType="text"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/cadastrar"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/colorPurple" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/categoria_edit_text"
-                android:hint="@string/categoria"
-                android:textColorHint="@color/colorAccent"
-                android:inputType="text"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/categoria_gastos_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{gasto.categoria}"
+                    android:hint="Categoria" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/data_hora_edit_text"
-                android:hint="@string/data_hora"
-                android:textColorHint="@color/colorAccent"
-                android:inputType="date"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:prefixText="R$ ">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descricao_gastos_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{gasto.descricao}"
+                    android:hint="Descrição" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/valor_edit_text"
-                android:hint="@string/valor"
-                android:textColorHint="@color/colorAccent"
-                android:inputType="numberDecimal"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/cadastrar_button_gastos"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/round_login_button"
-            android:text="@string/cadastrar"
-            android:textSize="24sp"
-            android:textColor="@color/colorWhite"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/data_gastos_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{gasto.data}"
+                    android:hint="Data" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/preco_gastos_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Preço"
+                    android:text="@{gasto.valor}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/cadastrar_button"
+                android:layout_marginTop="32dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastrar"
+                android:background="@drawable/round_login_button"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+        </LinearLayout>
 
 
-</FrameLayout>
+    </FrameLayout>
+</layout>
