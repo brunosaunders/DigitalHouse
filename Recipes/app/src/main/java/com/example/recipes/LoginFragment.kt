@@ -24,7 +24,7 @@ class LoginFragment : Fragment() {
         }
 
         view.button_logIn_LoginFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
         hideKeyboardOnScrolled(view.findViewById(R.id.scrollView_LoginFragment))
