@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.recipes.LoginFragment"
+        android:name="com.example.recipes.LoginFragment.LoginFragment"
         android:label="Digital House Foods"
         tools:layout="@layout/fragment_login" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.recipes.RegisterFragment"
+        android:name="com.example.recipes.RegisterFragment.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -33,5 +33,18 @@
         android:id="@+id/homeFragment"
         android:name="com.example.recipes.HomeFragment.HomeFragment"
         android:label="Digital House Foods"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.example.recipes.RestaurantDetailFragment.RestaurantDetailFragment"
+        android:label="fragment_restaurant_detail"
+        tools:layout="@layout/fragment_restaurant_detail" >
+        <argument
+            android:name="restaurant"
+            app:argType="com.example.recipes.domain.Restaurant" />
+    </fragment>
 </navigation>

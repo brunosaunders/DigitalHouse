@@ -8,7 +8,7 @@ import com.example.recipes.R
 import com.example.recipes.domain.Restaurant
 import kotlinx.android.synthetic.main.list_restaurant_item.view.*
 
-class RestaurantItemAdapter(val data: List<Restaurant>) : RecyclerView.Adapter<RestaurantItemAdapter.RestaurantViewHolder>() {
+class RestaurantItemAdapter(val data: List<Restaurant>, val listener: RestaurantItemListener) : RecyclerView.Adapter<RestaurantItemAdapter.RestaurantViewHolder>() {
 
     class RestaurantViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
@@ -24,6 +24,10 @@ class RestaurantItemAdapter(val data: List<Restaurant>) : RecyclerView.Adapter<R
         holder.view.textView_title_restaurantItem.text = item.title
         holder.view.textView_description_restaurantItem.text = item.description
         holder.view.textView_closingTime_restaurantItem.text = item.closingTime
+        holder.view.setOnClickListener {
+            listener.onClick(item)
+        }
+
     }
 
     override fun getItemCount(): Int {
