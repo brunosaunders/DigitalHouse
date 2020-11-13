@@ -46,5 +46,13 @@
         <argument
             android:name="restaurant"
             app:argType="com.example.recipes.domain.Restaurant" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_plateDetailFragment"
+            app:destination="@id/plateDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/plateDetailFragment"
+        android:name="com.example.recipes.PlateDetailFragment.PlateDetailFragment"
+        android:label="fragment_plate_detail"
+        tools:layout="@layout/fragment_plate_detail" />
 </navigation>
