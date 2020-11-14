@@ -63,5 +63,10 @@
         <argument
             android:name="plate"
             app:argType="com.example.recipes.domain.RestaurantPlate" />
+        <action
+            android:id="@+id/action_plateDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

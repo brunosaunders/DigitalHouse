@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recipes.AppBar
 import com.example.recipes.R
 import com.example.recipes.domain.Restaurant
-import com.example.recipes.domain.RestaurantPlate
+import com.example.recipes.util.getRestaurantPlates
 
 class RestaurantDetailFragment : Fragment() {
 
@@ -58,26 +58,5 @@ class RestaurantDetailFragment : Fragment() {
         super.onDestroy()
 
         (activity as AppBar).appBar?.show()
-    }
-
-    fun getRestaurantPlates(): List<RestaurantPlate> {
-        val plate01 = RestaurantPlate(
-            "Salada com molho Gengibre",
-            R.drawable.image4,
-            "Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusant doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis."
-        )
-
-        return listOf(
-            plate01,
-            plate01,
-            plate01,
-            plate01,
-            plate01,
-            plate01,
-            plate01,
-            plate01,
-            plate01,
-            plate01
-        )
     }
 }
