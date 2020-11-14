@@ -27,8 +27,6 @@ class RestaurantDetailAdapter(val data: List<RestaurantPlate>, val listener: Res
         holder.view.findViewById<LinearLayout>(R.id.linearLayout_plate_card).setOnClickListener {
             listener.onClick(item)
         }
-
-
     }
 
     override fun getItemCount(): Int {

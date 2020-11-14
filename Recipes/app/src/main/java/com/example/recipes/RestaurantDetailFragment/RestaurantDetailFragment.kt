@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipes.AppBar
@@ -29,12 +30,18 @@ class RestaurantDetailFragment : Fragment() {
         view.findViewById<ImageView>(R.id.imageView_RestaurantDetailFragment)
             .setImageResource(restaurant.drawable)
 
+        view.findViewById<ImageView>(R.id.imageView_upButton_RestaurantDetailFragment).setOnClickListener {
+            findNavController().navigate(R.id.action_restaurantDetailFragment_to_homeFragment)
+        }
+
         val recyclerView =
             view.findViewById<RecyclerView>(R.id.recyclerView_RestaurantDetailFragment)
+
         recyclerView.apply {
             layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-            adapter = RestaurantDetailAdapter(getRestaurantPlates(), RestaurantDetailListener {
-                findNavController().navigate(R.id.action_restaurantDetailFragment_to_plateDetailFragment)
+            adapter = RestaurantDetailAdapter(getRestaurantPlates(), RestaurantDetailListener { plateDetail ->
+                val action = RestaurantDetailFragmentDirections.actionRestaurantDetailFragmentToPlateDetailFragment(plateDetail)
+                findNavController().navigate(action)
             })
         }
         return view
@@ -43,6 +50,7 @@ class RestaurantDetailFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+
         (context as AppBar).appBar?.hide()
     }
 
