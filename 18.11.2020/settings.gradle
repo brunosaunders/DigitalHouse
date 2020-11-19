@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Aula Coroutines 18.11.2020"
