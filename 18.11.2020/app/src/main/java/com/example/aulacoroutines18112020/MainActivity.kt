@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                 Text("Splash Screen", modifier.align(Alignment.CenterHorizontally))
 
                 Spacer(Modifier.weight(1.0f))
+                
             }
         }
 
