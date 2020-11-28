@@ -1,17 +1,14 @@
 package com.example.webservices.services
 
-import com.example.webservices.models.Aluno
+import com.example.webservices.models.Resultado
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface Repository {
 
-    @GET("sort/aluno")
-    suspend fun getSortAluno(): Aluno
-
-    @GET("alunos")
-    suspend fun getAllAlunosRepo(): List<Aluno>
+    @GET("produtos")
+    suspend fun getAllProdutosRepo(): Resultado
 }
 
 val retrofit = Retrofit.Builder()

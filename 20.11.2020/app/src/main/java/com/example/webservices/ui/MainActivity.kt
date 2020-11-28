@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.webservices.R
@@ -23,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.getSortAluno()
-        viewModel.aluno.observe(this, Observer {
+        viewModel.getAllProdutos()
+        viewModel.listProdutos.observe(this){
             Log.i("MainActivity", it.toString())
-        })
+        }
     }
 }
