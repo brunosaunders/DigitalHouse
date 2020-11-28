@@ -99,6 +99,9 @@
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:text="Remember"
+                    android:textColor="@color/light_black"
+                    android:textSize="16sp"
+                    android:buttonTint="@color/red"
                     android:layout_marginStart="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
