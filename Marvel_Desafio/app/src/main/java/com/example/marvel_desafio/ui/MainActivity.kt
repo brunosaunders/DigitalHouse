@@ -21,4 +21,11 @@ class MainActivity : AppCompatActivity(), SupportBar {
 
     override val supportBar: androidx.appcompat.app.ActionBar?
         get() = supportActionBar
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_main)
+
+        return navController.navigateUp() || onNavigateUp()
+
+    }
 }

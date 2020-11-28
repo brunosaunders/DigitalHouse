@@ -12,4 +12,5 @@
     <color name="darker_red">#BB1C1F</color>
     <color name="dark_blue">#00162C</color>
     <color name="light_black">#343F4B</color>
+    <color name="shadow_white">#EFF2F5</color>
 </resources>
