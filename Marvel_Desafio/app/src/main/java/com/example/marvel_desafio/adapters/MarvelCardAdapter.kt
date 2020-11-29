@@ -1,12 +1,11 @@
 package com.example.marvel_desafio.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvel_desafio.R
+import com.example.marvel_desafio.databinding.ListItemMarvelCardsBinding
 
 class MarvelCardAdapter(val data: List<String>) : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardViewHolder>() {
     override fun getItemCount(): Int {
@@ -16,15 +15,13 @@ class MarvelCardAdapter(val data: List<String>) : RecyclerView.Adapter<MarvelCar
     override fun onBindViewHolder(holder: MarvelCardViewHolder, position: Int) {
         val item = data[position]
 
-        holder.iv_cardImage.setImageResource(R.drawable.raster)
-        holder.tv_cardNumber.text = item
+        holder.binding.ivMarvelCard.setImageResource(R.drawable.raster)
+        holder.binding.tvMarvelCardNumber.text = item
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_marvel_cards, parent, false)
-        return MarvelCardViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding: ListItemMarvelCardsBinding = DataBindingUtil.inflate(inflater, R.layout.list_item_marvel_cards, parent, false)
+        return MarvelCardViewHolder(binding)
     }
-    class MarvelCardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val iv_cardImage = view.findViewById<ImageView>(R.id.iv_marvelCard)
-        val tv_cardNumber = view.findViewById<TextView>(R.id.tv_marvelCardNumber)
-    }
+    class MarvelCardViewHolder(val binding: ListItemMarvelCardsBinding) : RecyclerView.ViewHolder(binding.root)
 }
