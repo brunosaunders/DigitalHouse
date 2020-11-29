@@ -27,6 +27,12 @@ class LoginFragment : Fragment() {
 
         binding.btnCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            supportBar.show()
+        }
+
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+            supportBar.hide()
         }
         return binding.root
     }
@@ -38,10 +44,4 @@ class LoginFragment : Fragment() {
             supportBar = context.supportBar!!
         }
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        supportBar.show()
-    }
-
 }
