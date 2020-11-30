@@ -29,13 +29,19 @@ class HomeFragment : Fragment() {
         }
         Log.i("HomeFragment", viewModel.listComics.value.toString())
 
+        val marvelAdapter = MarvelCardAdapter()
         binding.rvHome.apply {
             layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
-            adapter = MarvelCardAdapter(returnList())
-            setHasFixedSize(true)
+            adapter = marvelAdapter
         }
 
+        viewModel.listComics.observe(viewLifecycleOwner) {
+            it?.let {
+                marvelAdapter.data = it
+            }
+        }
 
+        binding.lifecycleOwner = this
 
         return binding.root
     }

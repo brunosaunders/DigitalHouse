@@ -4,19 +4,30 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.marvel_desafio.R
 import com.example.marvel_desafio.databinding.ListItemMarvelCardsBinding
+import com.example.marvel_desafio.domain.Comic
 
-class MarvelCardAdapter(val data: List<String>) : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardViewHolder>() {
+class MarvelCardAdapter() : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardViewHolder>() {
+
+    var data =  listOf<Comic>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
     override fun getItemCount(): Int {
-        return data.size
+        return data.size ?: 0
     }
 
     override fun onBindViewHolder(holder: MarvelCardViewHolder, position: Int) {
-        val item = data[position]
+        val item = data.get(position)
 
-        holder.binding.ivMarvelCard.setImageResource(R.drawable.raster)
-        holder.binding.tvMarvelCardNumber.text = item
+        val path = item.thumbnail?.path
+        val extension = item.thumbnail?.extension
+
+        Glide.with(holder.binding.ivMarvelCard.context).load("$path.$extension").into(holder.binding.ivMarvelCard)
+        holder.binding.tvMarvelCardNumber.text = "#$position"
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCardViewHolder {
         val inflater = LayoutInflater.from(parent.context)
