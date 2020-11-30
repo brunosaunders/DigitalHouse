@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.marvel_desafio.R
 import com.example.marvel_desafio.adapters.MarvelCardAdapter
@@ -29,7 +30,9 @@ class HomeFragment : Fragment() {
         }
         Log.i("HomeFragment", viewModel.listComics.value.toString())
 
-        val marvelAdapter = MarvelCardAdapter()
+        val marvelAdapter = MarvelCardAdapter(MarvelCardAdapter.NavigateListener {
+            findNavController().navigate(R.id.action_homeFragment_to_cardDetailFragment)
+        })
         binding.rvHome.apply {
             layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
             adapter = marvelAdapter

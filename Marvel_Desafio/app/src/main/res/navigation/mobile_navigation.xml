@@ -28,5 +28,13 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.marvel_desafio.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_cardDetailFragment"
+            app:destination="@id/cardDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailFragment"
+        android:name="com.example.marvel_desafio.ui.card.CardDetailFragment"
+        android:label="CardDetailFragment" />
 </navigation>

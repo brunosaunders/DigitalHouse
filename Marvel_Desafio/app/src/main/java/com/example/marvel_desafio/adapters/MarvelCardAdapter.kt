@@ -9,7 +9,7 @@ import com.example.marvel_desafio.R
 import com.example.marvel_desafio.databinding.ListItemMarvelCardsBinding
 import com.example.marvel_desafio.domain.Comic
 
-class MarvelCardAdapter() : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardViewHolder>() {
+class MarvelCardAdapter(val navigateListener: NavigateListener) : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardViewHolder>() {
 
     var data =  listOf<Comic>()
         set(value) {
@@ -28,6 +28,10 @@ class MarvelCardAdapter() : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardVie
 
         Glide.with(holder.binding.ivMarvelCard.context).load("$path.$extension").into(holder.binding.ivMarvelCard)
         holder.binding.tvMarvelCardNumber.text = "#$position"
+
+        holder.binding.ivMarvelCard.setOnClickListener {
+            navigateListener.onClick()
+        }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCardViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -35,4 +39,8 @@ class MarvelCardAdapter() : RecyclerView.Adapter<MarvelCardAdapter.MarvelCardVie
         return MarvelCardViewHolder(binding)
     }
     class MarvelCardViewHolder(val binding: ListItemMarvelCardsBinding) : RecyclerView.ViewHolder(binding.root)
+
+    class NavigateListener(val action: () -> Unit) {
+        fun onClick() = action()
+    }
 }

@@ -18,7 +18,8 @@ data class Comic(
     val pageCount: Int?,
     val prices: List<Prices>?,
     val thumbnail: Thumbnail?,
-    val dates: List<Dates>?
+    val dates: List<Dates>?,
+    val images: List<Thumbnail>?
 
 )
 
