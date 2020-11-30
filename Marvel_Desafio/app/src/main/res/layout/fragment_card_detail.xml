@@ -33,19 +33,27 @@
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/raster" />
 
-        <ImageView
-            android:id="@+id/iv_smallerImage"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.28"
-            app:layout_constraintWidth_percent="0.4"
+            app:layout_constraintWidth_percent="0.36"
             android:layout_marginTop="32dp"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" >
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:id="@+id/iv_smallerImage"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/iv_title"
+            android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="amazing spider-man (2014) #1 (mhan variant)"
@@ -57,7 +65,7 @@
             android:layout_marginHorizontal="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_smallerImage" />
+            app:layout_constraintTop_toBottomOf="@+id/card" />
 
         <TextView
             android:id="@+id/tv_description"
@@ -72,7 +80,7 @@
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_title" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
         <LinearLayout
             android:id="@+id/linearLayout"

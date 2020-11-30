@@ -8,8 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.example.marvel_desafio.R
 import com.example.marvel_desafio.databinding.FragmentCardDetailBinding
+import com.example.marvel_desafio.domain.Comic
 
 class CardDetailFragment : Fragment() {
 
@@ -24,7 +26,22 @@ class CardDetailFragment : Fragment() {
         val navController = activity?.findNavController(R.id.nav_host_fragment_main)
         binding.toolbar.setupWithNavController(navController!!)
 
-        
+        val comic = arguments?.getSerializable("comic") as Comic
+
+        binding.apply {
+            val pathBigger = comic.images?.firstOrNull()?.path
+            val extensionBigger = comic.images?.firstOrNull()?.extension
+
+            Glide.with(ivBiggerImage.context).load("$pathBigger.$extensionBigger").into(ivBiggerImage)
+
+            val path = comic.thumbnail?.path
+            val extension = comic.thumbnail?.extension
+
+            Glide.with(ivSmallerImage.context).load("$path.$extension").into(ivSmallerImage)
+
+            tvTitle.text = comic.title
+            tvDescription.text = comic.description
+        }
         return binding.root
     }
 }

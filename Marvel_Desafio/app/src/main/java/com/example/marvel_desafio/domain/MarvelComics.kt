@@ -1,5 +1,6 @@
 package com.example.marvel_desafio.domain
 
+import java.io.Serializable
 
 
 class MarvelComics(
@@ -21,7 +22,7 @@ data class Comic(
     val dates: List<Dates>?,
     val images: List<Thumbnail>?
 
-)
+) : Serializable
 
 class Dates(
     val type: String,

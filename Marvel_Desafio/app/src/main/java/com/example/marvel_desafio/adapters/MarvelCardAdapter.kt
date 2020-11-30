@@ -30,7 +30,7 @@ class MarvelCardAdapter(val navigateListener: NavigateListener) : RecyclerView.A
         holder.binding.tvMarvelCardNumber.text = "#$position"
 
         holder.binding.ivMarvelCard.setOnClickListener {
-            navigateListener.onClick()
+            navigateListener.onClick(item)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCardViewHolder {
@@ -40,7 +40,7 @@ class MarvelCardAdapter(val navigateListener: NavigateListener) : RecyclerView.A
     }
     class MarvelCardViewHolder(val binding: ListItemMarvelCardsBinding) : RecyclerView.ViewHolder(binding.root)
 
-    class NavigateListener(val action: () -> Unit) {
-        fun onClick() = action()
+    class NavigateListener(val action: (Comic) -> Unit) {
+        fun onClick(comic: Comic) = action(comic)
     }
 }

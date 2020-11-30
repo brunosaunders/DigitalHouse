@@ -30,8 +30,9 @@ class HomeFragment : Fragment() {
         }
         Log.i("HomeFragment", viewModel.listComics.value.toString())
 
-        val marvelAdapter = MarvelCardAdapter(MarvelCardAdapter.NavigateListener {
-            findNavController().navigate(R.id.action_homeFragment_to_cardDetailFragment)
+        val marvelAdapter = MarvelCardAdapter(MarvelCardAdapter.NavigateListener { comic ->
+            val action = HomeFragmentDirections.actionHomeFragmentToCardDetailFragment(comic)
+            findNavController().navigate(action)
         })
         binding.rvHome.apply {
             layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
