@@ -1,6 +1,8 @@
 package com.example.marvel_desafio.ui.card
 
 import android.os.Bundle
+import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +29,7 @@ class CardDetailFragment : Fragment() {
         binding.toolbar.setupWithNavController(navController!!)
 
         val comic = arguments?.getSerializable("comic") as Comic
+        Log.i("CardDetailFragment", comic.toString())
 
         binding.apply {
             val pathBigger = comic.images?.firstOrNull()?.path
@@ -40,7 +43,11 @@ class CardDetailFragment : Fragment() {
             Glide.with(ivSmallerImage.context).load("$path.$extension").into(ivSmallerImage)
 
             tvTitle.text = comic.title
-            tvDescription.text = comic.description
+
+            comic.description?.let {
+                tvDescription.text = Html.fromHtml(it).toString()
+            }
+
         }
         return binding.root
     }

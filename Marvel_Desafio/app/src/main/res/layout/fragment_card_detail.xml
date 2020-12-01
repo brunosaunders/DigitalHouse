@@ -73,7 +73,7 @@
             android:layout_height="0dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="32dp"
-            android:text="aloha"
+            android:text="Description is not available"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginBottom="32dp"
@@ -102,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:text="Published: "
+                    android:textSize="16sp"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -110,6 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="April 30, 2014"
+                    android:textSize="16sp"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -123,6 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:text="Price: "
+                    android:textSize="16sp"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -131,6 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$ 5.99"
+                    android:textSize="16sp"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -144,6 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:text="Pages: "
+                    android:textSize="16sp"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -151,6 +156,7 @@
                     android:id="@+id/tv_pages"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="16sp"
                     android:text="39"
                     android:textColor="@color/white" />
             </LinearLayout>
