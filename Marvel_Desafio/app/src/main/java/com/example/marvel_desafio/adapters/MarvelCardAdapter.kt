@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.marvel_desafio.R
 import com.example.marvel_desafio.databinding.ListItemMarvelCardsBinding
 import com.example.marvel_desafio.domain.Comic
@@ -26,8 +27,12 @@ class MarvelCardAdapter(val navigateListener: NavigateListener) : RecyclerView.A
         val path = item.thumbnail?.path
         val extension = item.thumbnail?.extension
 
-        Glide.with(holder.binding.ivMarvelCard.context).load("$path.$extension").into(holder.binding.ivMarvelCard)
-        holder.binding.tvMarvelCardNumber.text = "#$position"
+        Glide.with(holder.binding.ivMarvelCard.context)
+            .load("$path.$extension")
+            .apply(RequestOptions().placeholder(R.drawable.loading_animation))
+            .into(holder.binding.ivMarvelCard)
+
+        holder.binding.tvMarvelCardNumber.text = "#${item.issueNumber}"
 
         holder.binding.ivMarvelCard.setOnClickListener {
             navigateListener.onClick(item)

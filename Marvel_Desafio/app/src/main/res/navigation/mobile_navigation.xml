@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/cardDetailFragment"
         android:name="com.example.marvel_desafio.ui.card.CardDetailFragment"
-        android:label="CardDetailFragment" >
+        android:label="" >
         <argument
             android:name="comic"
             app:argType="com.example.marvel_desafio.domain.Comic" />

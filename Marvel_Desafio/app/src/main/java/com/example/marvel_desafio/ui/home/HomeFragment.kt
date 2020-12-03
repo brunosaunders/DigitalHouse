@@ -1,7 +1,6 @@
 package com.example.marvel_desafio.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,11 +23,11 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        viewModel.refreshComics()
-        viewModel.listComics.observe(viewLifecycleOwner) {
-            Log.i("HomeFragment", it.toString())
-        }
-        Log.i("HomeFragment", viewModel.listComics.value.toString())
+        val characterId = 1009610
+        val limit = 15
+        val offset = 1
+
+        viewModel.refreshComics(characterId, limit, offset)
 
         val marvelAdapter = MarvelCardAdapter(MarvelCardAdapter.NavigateListener { comic ->
             val action = HomeFragmentDirections.actionHomeFragmentToCardDetailFragment(comic)

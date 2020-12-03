@@ -1,7 +1,6 @@
 package com.example.marvel_desafio.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -13,7 +12,7 @@ import com.example.marvel_desafio.util.SupportBar
 class MainActivity : AppCompatActivity(), SupportBar {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i("MainActivity", "Cacuetou")
+
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         setSupportActionBar(binding.toolbar)

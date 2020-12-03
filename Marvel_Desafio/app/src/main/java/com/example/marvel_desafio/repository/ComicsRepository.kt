@@ -12,10 +12,15 @@ object ComicsRepository {
     val comics: LiveData<List<Comic>>
         get() = _comics
 
-    suspend fun refreshComics() {
+    suspend fun refreshComics(characterId: Int, limit: Int, offset: Int) {
 
         withContext(Dispatchers.IO) {
-            _comics.postValue(MarvelApi.retrofitService.getComics().data.results)
+            _comics.postValue(
+                MarvelApi.retrofitService
+                    .getComics(
+                        characterId, limit, offset
+                    ).data.results
+            )
 
         }
     }

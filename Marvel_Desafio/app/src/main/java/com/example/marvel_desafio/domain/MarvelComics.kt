@@ -14,6 +14,7 @@ class Results(
 
 data class Comic(
     val id: Int?,
+    val issueNumber: Double?,
     val title: String?,
     val description: String?,
     val pageCount: Int?,

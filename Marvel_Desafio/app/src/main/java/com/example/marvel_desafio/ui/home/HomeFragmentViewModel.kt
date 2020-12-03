@@ -10,9 +10,9 @@ class HomeFragmentViewModel : ViewModel() {
 
     val listComics = repository.comics
 
-    fun refreshComics() {
+    fun refreshComics(characterId: Int, limit: Int, offset: Int) {
         viewModelScope.launch {
-            repository.refreshComics()
+            repository.refreshComics(characterId, limit, offset)
         }
     }
 }

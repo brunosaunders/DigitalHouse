@@ -48,7 +48,41 @@ class CardDetailFragment : Fragment() {
                 tvDescription.text = Html.fromHtml(it).toString()
             }
 
+            val price = if (comic.prices != null) "$ ${comic.prices.first().price}" else "Price is not Available"
+            val pageCount = comic.pageCount?.toString()
+
+            //Drop after T
+            val date = comic.dates?.get(1)?.date?.split("T")?.first()
+
+            tvDate.text = getFormattedDate(date)
+            tvPages.text = pageCount
+            tvPrice.text = price
+
+
         }
         return binding.root
+    }
+
+    fun getFormattedDate(string: String?): String {
+        if (string == null) return "Date not available"
+
+        val date = string.split("-")
+        if (date.size > 3) return "Date not available"
+
+        val month = when (date[1]) {
+            "01" -> "January"
+            "02" -> "February"
+            "03" -> "March"
+            "04" -> "April"
+            "05" -> "May"
+            "06" -> "June"
+            "07" -> "July"
+            "08" -> "August"
+            "09" -> "September"
+            "10" -> "October"
+            "11" -> "November"
+            else -> "December"
+        }
+        return "$month ${date[2]}, ${date.first()}"
     }
 }
