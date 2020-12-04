@@ -12,16 +12,51 @@ object ComicsRepository {
     val comics: LiveData<List<Comic>>
         get() = _comics
 
-    suspend fun refreshComics(characterId: Int, limit: Int, offset: Int) {
+    val needToRefresh = MutableLiveData<Boolean>()
+    val lastRefresh = MutableLiveData(System.currentTimeMillis())
 
-        withContext(Dispatchers.IO) {
-            _comics.postValue(
-                MarvelApi.retrofitService
-                    .getComics(
-                        characterId, limit, offset
-                    ).data.results
-            )
+    fun updateNeedToRefresh() {
+        val thisRefresh = System.currentTimeMillis()
 
+        if (needToRefresh.value == null) {
+            lastRefresh.value = thisRefresh
+            needToRefresh.value = true
+            return
         }
+
+        if (thisRefresh - lastRefresh.value!! < 1500L) {
+            needToRefresh.value = false
+        } else {
+            needToRefresh.value = true
+            lastRefresh.value = thisRefresh
+        }
+    }
+
+    suspend fun refreshComics(characterId: Int, limit: Int, page: Int) {
+        val offset = 1 + page * limit
+
+        updateNeedToRefresh()
+
+        if (needToRefresh.value!!) {
+
+            withContext(Dispatchers.IO) {
+                _comics.value?.let {
+                    _comics.postValue(
+                        it +
+                                MarvelApi.retrofitService
+                                    .getComics(
+                                        characterId, limit, offset
+                                    ).data.results
+                    )
+                }
+                if (_comics.value == null) _comics.postValue(
+                    MarvelApi.retrofitService
+                        .getComics(
+                            characterId, limit, offset
+                        ).data.results
+                )
+            }
+        }
+
     }
 }

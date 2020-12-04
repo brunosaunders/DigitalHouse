@@ -18,7 +18,7 @@ class MarvelCardAdapter(val navigateListener: NavigateListener) : RecyclerView.A
             notifyDataSetChanged()
         }
     override fun getItemCount(): Int {
-        return data.size ?: 0
+        return data.size
     }
 
     override fun onBindViewHolder(holder: MarvelCardViewHolder, position: Int) {
@@ -32,7 +32,7 @@ class MarvelCardAdapter(val navigateListener: NavigateListener) : RecyclerView.A
             .apply(RequestOptions().placeholder(R.drawable.loading_animation))
             .into(holder.binding.ivMarvelCard)
 
-        holder.binding.tvMarvelCardNumber.text = "#${item.issueNumber}"
+        holder.binding.tvMarvelCardNumber.text = "#${position + 1}"
 
         holder.binding.ivMarvelCard.setOnClickListener {
             navigateListener.onClick(item)

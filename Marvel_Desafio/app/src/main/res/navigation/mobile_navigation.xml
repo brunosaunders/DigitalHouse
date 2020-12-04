@@ -40,5 +40,16 @@
         <argument
             android:name="comic"
             app:argType="com.example.marvel_desafio.domain.Comic" />
+        <action
+            android:id="@+id/action_cardDetailFragment_to_zoomCardFragment"
+            app:destination="@id/zoomCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/zoomCardFragment"
+        android:name="com.example.marvel_desafio.ui.zoom.ZoomCardFragment"
+        android:label="ZoomCardFragment" >
+        <argument
+            android:name="path"
+            app:argType="string" />
     </fragment>
 </navigation>

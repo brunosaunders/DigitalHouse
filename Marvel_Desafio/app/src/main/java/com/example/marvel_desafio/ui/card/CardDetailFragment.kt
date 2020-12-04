@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.example.marvel_desafio.R
@@ -58,6 +59,10 @@ class CardDetailFragment : Fragment() {
             tvPages.text = pageCount
             tvPrice.text = price
 
+            card.setOnClickListener {
+                val action = CardDetailFragmentDirections.actionCardDetailFragmentToZoomCardFragment("$path.$extension")
+                findNavController().navigate(action)
+            }
 
         }
         return binding.root
