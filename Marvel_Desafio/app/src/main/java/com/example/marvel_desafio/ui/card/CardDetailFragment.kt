@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
@@ -26,8 +25,8 @@ class CardDetailFragment : Fragment() {
 
         val binding: FragmentCardDetailBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_card_detail, container, false)
 
-        val navController = activity?.findNavController(R.id.nav_host_fragment_main)
-        binding.toolbar.setupWithNavController(navController!!)
+        val navController = findNavController()
+        binding.toolbar.setupWithNavController(navController)
 
         val comic = arguments?.getSerializable("comic") as Comic
         Log.i("CardDetailFragment", comic.toString())

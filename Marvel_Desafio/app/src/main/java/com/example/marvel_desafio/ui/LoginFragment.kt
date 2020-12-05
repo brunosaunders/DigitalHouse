@@ -1,6 +1,5 @@
 package com.example.marvel_desafio.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.marvel_desafio.R
 import com.example.marvel_desafio.databinding.FragmentLoginBinding
-import com.example.marvel_desafio.util.SupportBar
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -23,25 +21,15 @@ class LoginFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-        supportBar.hide()
 
         binding.btnCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-            supportBar.show()
         }
 
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            supportBar.hide()
         }
+
         return binding.root
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        if (context is SupportBar) {
-            supportBar = context.supportBar!!
-        }
     }
 }
