@@ -9,13 +9,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-val BASE_URL = "https://gateway.marvel.com/"
-val API_KEY = "f85b31c8d52fbec8f47891c5db4335c8"
-val HASH = "066fb31fd4362fb7bbec5dda05682a04"
-val TS = "1"
+private const val BASE_URL = "https://gateway.marvel.com/"
+private const val API_KEY = "f85b31c8d52fbec8f47891c5db4335c8"
+private const val HASH = "066fb31fd4362fb7bbec5dda05682a04"
+private const val TS = "1"
 
 interface MarvelApiService {
-    @GET("v1/public/comics?apikey=f85b31c8d52fbec8f47891c5db4335c8&hash=066fb31fd4362fb7bbec5dda05682a04&ts=1")
+    @GET("v1/public/comics?apikey=$API_KEY&hash=$HASH&ts=$TS")
     suspend fun getComics(
         @Query("characters") characterId: Int,
         @Query("limit") limit: Int,
