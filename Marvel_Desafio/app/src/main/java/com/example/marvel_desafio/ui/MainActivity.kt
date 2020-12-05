@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.marvel_desafio.R
 import com.example.marvel_desafio.databinding.ActivityMainBinding
@@ -16,8 +17,9 @@ class MainActivity : AppCompatActivity(), SupportBar {
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         setSupportActionBar(binding.toolbar)
-        val navControler = findNavController(R.id.nav_host_fragment_main)
-        setupActionBarWithNavController(navControler)
+        val navController = findNavController(R.id.nav_host_fragment_main)
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override val supportBar: androidx.appcompat.app.ActionBar?
@@ -26,7 +28,12 @@ class MainActivity : AppCompatActivity(), SupportBar {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_main)
 
-        return navController.navigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
 
+    }
+
+    override fun onBackPressed() {
+        val navController = findNavController(R.id.nav_host_fragment_main)
+        navController.navigateUp()
     }
 }
